@@ -28,6 +28,7 @@ object Chamber {
 
     def animate(speed: Int): Array[String] = {
 
+      @scala.annotation.tailrec
       def recurseNextState(chamber: Chamber, result: Array[String]): Array[String] = {
         if (chamber.isEmpty) result.appended(chamber.print)
         else {
