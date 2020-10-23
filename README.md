@@ -1,4 +1,4 @@
-#Chamber Problem
+# Chamber Problem
 
 ## Tests
 See ChamberTest.scala for examples.  Test can be run by executing:
