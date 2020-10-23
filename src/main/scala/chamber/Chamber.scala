@@ -56,8 +56,8 @@ case class Chamber(size: Int, leftBound: Set[Int], rightBound: Set[Int]) {
   /** Creates a new Chamber if particles are to move the specified speed.  */
   def move(speed: Int): Chamber =
     Chamber(size,
-      leftBound.flatMap(i => if (i - speed < 0) List.empty else List(i - speed)),
-      rightBound.flatMap(i => if (i + speed >= size) List.empty else List(i + speed))
+      leftBound.map(_ - speed).filter(_ >= 0),
+      rightBound.map(_ + speed).filter(_ < size)
     )
 
   /** Deteremines if there are any particles in the chamber. */
